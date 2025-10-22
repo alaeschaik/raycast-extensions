@@ -37,7 +37,7 @@ export default function SearchSeries(props: LaunchProps<{ arguments: Arguments }
   // Update existing series set when series or instance changes
   useEffect(() => {
     if (existingSeriesList) {
-      const tvdbIds = new Set((existingSeriesList || []).map(series => series.tvdbId));
+      const tvdbIds = new Set((existingSeriesList || []).map((series) => series.tvdbId));
       setExistingSeries(tvdbIds);
     }
   }, [existingSeriesList, selectedInstance]);
@@ -47,8 +47,8 @@ export default function SearchSeries(props: LaunchProps<{ arguments: Arguments }
     if (props.arguments.query && props.arguments.query.trim() && selectedInstance?.url && selectedInstance?.apiKey) {
       setIsSearching(true);
       searchSeries(selectedInstance, props.arguments.query)
-        .then(results => setSearchResults(results))
-        .catch(error => {
+        .then((results) => setSearchResults(results))
+        .catch((error) => {
           console.error("Initial search error:", error);
           setSearchResults([]);
         })
@@ -66,8 +66,8 @@ export default function SearchSeries(props: LaunchProps<{ arguments: Arguments }
       setIsSearching(true);
 
       searchSeries(selectedInstance, searchText)
-        .then(results => setSearchResults(results))
-        .catch(error => {
+        .then((results) => setSearchResults(results))
+        .catch((error) => {
           console.error("Search error:", error);
           setSearchResults([]);
         })
@@ -151,7 +151,7 @@ ${series.airTime ? `- **Air Time:** ${series.airTime}` : ""}`}
             </ActionPanel.Section>
             {instances.length > 1 && (
               <ActionPanel.Section title="Instance">
-                {instances.map(instance => (
+                {instances.map((instance) => (
                   <Action
                     key={instance.name}
                     title={`Switch to ${instance.name}`}
@@ -193,7 +193,7 @@ ${series.airTime ? `- **Air Time:** ${series.airTime}` : ""}`}
     <List
       key={`search-${selectedInstance?.name || "default"}`}
       isLoading={isSearching}
-      onSearchTextChange={text => setSearchText(text || "")}
+      onSearchTextChange={(text) => setSearchText(text || "")}
       searchText={searchText}
       searchBarPlaceholder={`Search series on ${selectedInstance?.name || "Sonarr"}...`}
       throttle

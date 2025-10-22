@@ -85,7 +85,7 @@ export default function UpcomingShows() {
             </ActionPanel.Section>
             {instances.length > 1 && (
               <ActionPanel.Section title="Instance">
-                {instances.map(instance => (
+                {instances.map((instance) => (
                   <Action
                     key={instance.name}
                     title={`Switch to ${instance.name}`}
@@ -143,7 +143,7 @@ export default function UpcomingShows() {
   // Filter by monitoring status and sort by air date (closest first)
   const filteredAndSortedEpisodes = calendarEpisodes
     ? calendarEpisodes
-        .filter(episode => {
+        .filter((episode) => {
           // Filter by monitoring status
           if (monitoringFilter === "all") return true;
           return (
@@ -166,7 +166,7 @@ export default function UpcomingShows() {
         <List.Dropdown
           tooltip="Filter by Monitoring Status"
           value={monitoringFilter}
-          onChange={value => setMonitoringFilter(value as MonitoringFilter)}
+          onChange={(value) => setMonitoringFilter(value as MonitoringFilter)}
         >
           <List.Dropdown.Item title="All Episodes" value="all" />
           <List.Dropdown.Item title="📡 Monitored" value="monitored" />

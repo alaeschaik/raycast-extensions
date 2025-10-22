@@ -69,7 +69,7 @@ export default function SeriesLibrary() {
             </ActionPanel.Section>
             {instances.length > 1 && (
               <ActionPanel.Section title="Instance">
-                {instances.map(instance => (
+                {instances.map((instance) => (
                   <Action
                     key={instance.name}
                     title={`Switch to ${instance.name}`}
@@ -127,7 +127,7 @@ export default function SeriesLibrary() {
   // Filter series by status and sort them
   const filteredAndSortedSeries = series
     ? series
-        .filter(show => {
+        .filter((show) => {
           if (statusFilter === "all") return true;
           return show.status === statusFilter;
         })
@@ -145,7 +145,7 @@ export default function SeriesLibrary() {
         <Grid.Dropdown
           tooltip="Filter by Status"
           value={statusFilter}
-          onChange={value => setStatusFilter(value as StatusFilter)}
+          onChange={(value) => setStatusFilter(value as StatusFilter)}
         >
           <Grid.Dropdown.Item title="All Series" value="all" />
           <Grid.Dropdown.Item title="📡 Continuing" value="continuing" />

@@ -17,7 +17,7 @@ export default function UnmonitoredSeries() {
   const { data: allSeries, isLoading, error, mutate } = useSeries(selectedInstance);
 
   // Filter only unmonitored series
-  const unmonitoredSeries = allSeries ? allSeries.filter(series => !series.monitored) : [];
+  const unmonitoredSeries = allSeries ? allSeries.filter((series) => !series.monitored) : [];
 
   const seriesGridItem = (show: Series) => {
     const poster = getSeriesPoster(show);
@@ -68,7 +68,7 @@ export default function UnmonitoredSeries() {
             </ActionPanel.Section>
             {instances.length > 1 && (
               <ActionPanel.Section title="Instance">
-                {instances.map(instance => (
+                {instances.map((instance) => (
                   <Action
                     key={instance.name}
                     title={`Switch to ${instance.name}`}
@@ -132,11 +132,7 @@ export default function UnmonitoredSeries() {
       aspectRatio="3/4"
     >
       {unmonitoredSeries.length === 0 ? (
-        <Grid.EmptyView
-          title="No Unmonitored Series"
-          description="All series are being monitored"
-          icon={Icon.Eye}
-        />
+        <Grid.EmptyView title="No Unmonitored Series" description="All series are being monitored" icon={Icon.Eye} />
       ) : (
         unmonitoredSeries.map(seriesGridItem)
       )}

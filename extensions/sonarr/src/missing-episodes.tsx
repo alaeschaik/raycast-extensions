@@ -57,7 +57,7 @@ export default function MissingEpisodes() {
             </ActionPanel.Section>
             {instances.length > 1 && (
               <ActionPanel.Section title="Instance">
-                {instances.map(instance => (
+                {instances.map((instance) => (
                   <Action
                     key={instance.name}
                     title={`Switch to ${instance.name}`}
@@ -113,7 +113,10 @@ export default function MissingEpisodes() {
   }
 
   return (
-    <List isLoading={isLoading} searchBarPlaceholder={`Search missing episodes on ${selectedInstance?.name || "Sonarr"}...`}>
+    <List
+      isLoading={isLoading}
+      searchBarPlaceholder={`Search missing episodes on ${selectedInstance?.name || "Sonarr"}...`}
+    >
       {missingEpisodes.length === 0 ? (
         <List.EmptyView
           title="No Missing Episodes"

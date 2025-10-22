@@ -132,23 +132,19 @@ export default function AddSeriesForm({ series, instance }: AddSeriesFormProps) 
       <Form.Description text={`Configure settings to add "${formatSeriesTitle(series)}" to your Sonarr collection`} />
 
       <Form.Dropdown id="qualityProfileId" title="Quality Profile" defaultValue={qualityProfiles[0]?.id.toString()}>
-        {qualityProfiles.map(profile => (
+        {qualityProfiles.map((profile) => (
           <Form.Dropdown.Item key={profile.id} value={profile.id.toString()} title={profile.name} />
         ))}
       </Form.Dropdown>
 
-      <Form.Dropdown
-        id="languageProfileId"
-        title="Language Profile"
-        defaultValue={languageProfiles[0]?.id.toString()}
-      >
-        {languageProfiles.map(profile => (
+      <Form.Dropdown id="languageProfileId" title="Language Profile" defaultValue={languageProfiles[0]?.id.toString()}>
+        {languageProfiles.map((profile) => (
           <Form.Dropdown.Item key={profile.id} value={profile.id.toString()} title={profile.name} />
         ))}
       </Form.Dropdown>
 
       <Form.Dropdown id="rootFolderPath" title="Root Folder" defaultValue={rootFolders[0]?.path}>
-        {rootFolders.map(folder => (
+        {rootFolders.map((folder) => (
           <Form.Dropdown.Item key={folder.id} value={folder.path} title={folder.path} />
         ))}
       </Form.Dropdown>

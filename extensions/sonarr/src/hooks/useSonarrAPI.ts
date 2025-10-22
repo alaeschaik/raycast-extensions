@@ -40,7 +40,7 @@ export function useSonarrAPI<T>(
       "Content-Type": "application/json",
     },
     execute: shouldExecute,
-    onError: error => {
+    onError: (error) => {
       console.error(`Sonarr API Error (${instance?.name || "Unknown"}):`, error);
       showToast({
         style: Toast.Style.Failure,

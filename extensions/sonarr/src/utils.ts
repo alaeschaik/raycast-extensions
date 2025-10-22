@@ -60,12 +60,12 @@ export function formatAirDateTime(dateString?: string): string {
 }
 
 export function getSeriesPoster(series: SeriesLookup | Series): string | undefined {
-  const posterImage = series.images?.find(img => img.coverType === "poster");
+  const posterImage = series.images?.find((img) => img.coverType === "poster");
   return posterImage?.remoteUrl || posterImage?.url;
 }
 
 export function getSeriesBanner(series: SeriesLookup | Series): string | undefined {
-  const bannerImage = series.images?.find(img => img.coverType === "banner");
+  const bannerImage = series.images?.find((img) => img.coverType === "banner");
   return bannerImage?.remoteUrl || bannerImage?.url;
 }
 

@@ -25,13 +25,13 @@ export default function InstanceStatus() {
 
       // Test all connections
       Promise.all(
-        sonarrInstances.map(async instance => {
+        sonarrInstances.map(async (instance) => {
           const isConnected = await testConnection(instance);
           return { name: instance.name, isConnected };
         }),
-      ).then(results => {
+      ).then((results) => {
         const statusMap: Record<string, boolean> = {};
-        results.forEach(result => {
+        results.forEach((result) => {
           statusMap[result.name] = result.isConnected;
         });
         setConnectionStatus(statusMap);
@@ -49,11 +49,11 @@ export default function InstanceStatus() {
   }, []);
 
   const handleTestConnection = async (instance: SonarrInstance) => {
-    setConnectionStatus(prev => ({ ...prev, [instance.name]: undefined }));
+    setConnectionStatus((prev) => ({ ...prev, [instance.name]: undefined }));
 
     try {
       const isConnected = await testConnection(instance);
-      setConnectionStatus(prev => ({ ...prev, [instance.name]: isConnected }));
+      setConnectionStatus((prev) => ({ ...prev, [instance.name]: isConnected }));
 
       showToast({
         style: isConnected ? Toast.Style.Success : Toast.Style.Failure,
@@ -62,7 +62,7 @@ export default function InstanceStatus() {
       });
     } catch (error) {
       console.error("Connection test failed:", error);
-      setConnectionStatus(prev => ({ ...prev, [instance.name]: false }));
+      setConnectionStatus((prev) => ({ ...prev, [instance.name]: false }));
       showToast({
         style: Toast.Style.Failure,
         title: "Connection Error",

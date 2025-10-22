@@ -19,7 +19,7 @@ export default function DownloadQueue() {
 
   // Auto-refresh every 5 seconds if there are active downloads
   useEffect(() => {
-    const hasActiveDownloads = queueItems.some(item => item.status === "downloading");
+    const hasActiveDownloads = queueItems.some((item) => item.status === "downloading");
 
     if (hasActiveDownloads) {
       const interval = setInterval(() => {
@@ -108,7 +108,7 @@ export default function DownloadQueue() {
     // Show percentage for downloading items, status for others
     const tagValue = item.status === "downloading" ? `${getProgressPercentage(item)}%` : item.status;
 
-    const statusMessages = item.statusMessages.flatMap(sm => sm.messages).join(", ");
+    const statusMessages = item.statusMessages.flatMap((sm) => sm.messages).join(", ");
 
     const episodeTitle = item.episode ? formatEpisodeTitle(item.episode) : "Episode info unavailable";
     const seriesTitle = item.series?.title || "Unknown series";
@@ -171,7 +171,7 @@ ${formatOverview(item.episode?.overview || "")}`}
             </ActionPanel.Section>
             {instances.length > 1 && (
               <ActionPanel.Section title="Instance">
-                {instances.map(instance => (
+                {instances.map((instance) => (
                   <Action
                     key={instance.name}
                     title={`Switch to ${instance.name}`}
